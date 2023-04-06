@@ -1,0 +1,109 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: buy_stock
+  examples: |
+    - purchase some stocks
+    - purchase me a stock please
+    - i want to purchase some shares
+    - buy me a stock
+    - i want to buy a stock
+    - buy me some shares
+    - can i buy some stocks?
+    - can you buy me some shares?
+    - i'd like to buy stocks
+    - i want to buy [tesla](stock_company) stocks
+    - buy me [nvidia](stock_company) shares
+    - i want to buy some [apple](stock_company) shares
+    - buy me [20](stock_number) shares
+    - i want to buy [100](stock_number) stocks
+    - buy me [5](stock_number) stocks
+    - buy me [50](stock_number) shares of [nvidia](stock_company)
+    - buy a stock
+    - buy me another stock
+    - purchase [10](stock_number) shares of [tesla](stock_company)
+    - i want to purchase [100](stock_number) shares
+- intent: sell_stock
+  examples: |
+    - sell me a stock
+    - i sell to buy a stock
+    - sell [100](stock_number) shares of [tesla](stock_company)
+    - i want to sell [10](stock_number) shares of [nvidia](stock_company)
+    - sell me [50](stock_number) shares of a stock
+    - i want to sell [google](stock_company) stocks
+- intent: navigate
+  examples: |
+    - navigate to my [potfolio](page)
+    - go to [orders](page)
+    - can you navigate to [placements](page)
+    - show me the list of [placements](page)
+    - display all the [orders](page)
+    - display my [portfolio](page)
+    - display the [dashboard](page) page
+    - navigate to the [dashboard](page)
+    - go to my [portfolio](page)
+    - show me the list of [orders](page)
+    - navigate to [placements](page)
+- intent: inform
+  examples: |
+    - i want to buy [tesla](stock_company) stock
+    - [nvidia](stock_company)
+    - [google](stock_company) shares
+    - [100](stock_number) shares
+    - [20](stock_number)
+    - [10](stock_number) shares of [tesla](stock_company)
+    - [microsoft](stock_company) stocks
+    - [50](stock_number)
+    - [10](stock_number) stocks
+    - [tesla](stock_company) stock
+    - [tesla](stock_company)
+    - [10](stock_number)

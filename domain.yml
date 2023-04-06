@@ -1,0 +1,75 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- buy_stock
+- deny
+- goodbye
+- greet
+- inform
+- navigate
+- request_stock_form
+- sell_stock
+entities:
+- stock_company
+- stock_number
+- page
+slots:
+  stock_company:
+    type: categorical
+    values:
+    - tesla
+    - nvidia
+    - apple
+    - microsoft
+    - google
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: stock_company
+      conditions:
+      - active_loop: buy_stock_form
+  stock_number:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: stock_number
+      conditions:
+      - active_loop: buy_stock_form
+  page:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: page
+forms:
+  buy_stock_form:
+    required_slots:
+    - stock_company
+    - stock_number
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  - text: hello, how can help you today?
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_navigate:
+  - text: Navigating to {page}.
+  utter_buy_stock:
+  - text: handling command...
+  utter_sell_stock:
+  - text: handling command...
+  utter_submit:
+  - text: handling your order...
+  utter_ask_stock_company:
+  - text: please specify the name of the company
+  utter_ask_stock_number:
+  - text: please specify the number of stocks
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+actions:
+- utter_buy_stock
+- utter_navigate
