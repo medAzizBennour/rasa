@@ -11,8 +11,8 @@ intents:
 - request_stock_form
 - sell_stock
 entities:
-- stock_company
 - stock_number
+- stock_company
 - page
 slots:
   stock_company:
@@ -71,5 +71,6 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
-- utter_buy_stock
-- utter_navigate
+- action_reset_slots
+- action_buy_stock
+- action_navigate

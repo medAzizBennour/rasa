@@ -72,6 +72,9 @@ nlu:
     - buy me another stock
     - purchase [10](stock_number) shares of [tesla](stock_company)
     - i want to purchase [100](stock_number) shares
+    - buy me [100](stock_number) shares of [tesla](stock_company)
+    - buy [100](stock_number) shares of [nvidia](stock_company)
+    - buy me [10](stock_number) shares of [tesla](stock_company)
 - intent: sell_stock
   examples: |
     - sell me a stock

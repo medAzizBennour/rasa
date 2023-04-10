@@ -29,34 +29,89 @@ from typing import Dict, Text, Any, List, Union
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet, EventType
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import FormAction
+import json
 
-class BuyStockForm(FormAction):
-    def name(self) -> Text:
-        return "buy_stock_form"
+class ResetSlotsAction(Action):
+    def name(self) -> str:
+        return "action_reset_slots"
 
-    @staticmethod
-    def required_slots(tracker: Tracker) -> List[Text]:
-        return ["stock_company", "stock_number"]
-
-    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-        return {
-            "stock_company": [self.from_entity(entity="stock_company"), self.from_text()],
-            "stock_number": [self.from_entity(entity="stock_number"), self.from_text()]
-        }
-
-    def submit(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict]:
-        # Get the values of the slots
-        stock_name = tracker.get_slot("stock_company")
-        quantity = tracker.get_slot("stock_number")
-
-        # Do something with the form data (e.g. submit to an API)
-        # ...
-
-        # Send the user a confirmation message
-        message = f"You want to buy {quantity} shares of {stock_name}. Is that correct?"
-        dispatcher.utter_message(message)
-
-        # Reset the form
+    def run(self, dispatcher: CollectingDispatcher,
+        tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    
         return [SlotSet("stock_company", None), SlotSet("stock_number", None)]
+
+class BuyStockAction(Action):
+
+    def name(self) -> Text:
+        return "action_buy_stock"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Get latest user message
+        latest_message = tracker.latest_message
+        
+        # Get intent and extracted entities
+        intent = latest_message['intent']['name']
+        stock_company = None
+        stock_number = None
+        
+        for entity in latest_message['entities']:
+            if entity['entity'] == 'stock_company':
+                stock_company = entity['value']
+            elif entity['entity'] == 'stock_number':
+                stock_number = entity['value']
+        
+        # Save extracted entities in slots
+        if stock_company:
+            tracker.slots['stock_company'] = stock_company
+        if stock_number:
+            tracker.slots['stock_number'] = stock_number
+        stock_number = tracker.get_slot("stock_number")
+        stock_company = tracker.get_slot("stock_company")
+        
+        # Generate response message
+        response_message = f"processing command..."
+        response_dict = {"intent": intent, "entities": [{"stock_number":stock_number},{"stock_company":stock_company}], "response": response_message}
+
+        # Send response message using dispatcher
+        dispatcher.utter_message(json.dumps(response_dict))
+
+        return [SlotSet("stock_company", stock_company), SlotSet("stock_number", stock_number)]
+    
+class NavigateAction(Action):
+
+    def name(self) -> Text:
+        return "action_navigate"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Get latest user message
+        latest_message = tracker.latest_message
+        
+        # Get intent and extracted entities
+        intent = latest_message['intent']['name']
+        page = None
+        
+        for entity in latest_message['entities']:
+            if entity['entity'] == 'page':
+                page = entity['value']
+        
+        
+        # Save extracted entities in slots
+        if page:
+            tracker.slots['page'] = page
+        page = tracker.get_slot("page")
+        
+        # Generate response message
+        response_message = f"navigating to {page}"
+        response_dict = {"intent": intent, "entities": {"page":page}, "response": response_message}
+
+        # Send response message using dispatcher
+        dispatcher.utter_message(json.dumps(response_dict))
+
+        return [SlotSet("page", page)]
 
