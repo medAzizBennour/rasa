@@ -1,25 +1,43 @@
 version: "3.1"
 
-rules:
-
-- rule: Say goodbye anytime the user says goodbye
+- rule: other action
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
-
-- rule: Say 'I am a bot' anytime the user challenges
+    - intent: goodbye
+    - action: action_other
+- rule:  greet action
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+    - intent: greet
+    - action: action_greet
+- rule:  goodbye action
+  steps:
+    - intent: goodbye
+    - action: other_action
 
-- rule: Activate buy stock action
+- rule:  buy stock action
   steps:
     - intent: buy_stock
-    - action: action_reset_slots
     - action: action_buy_stock
 
-  
-- rule: Activate navigate action
+- rule : navigate action
   steps:
     - intent: navigate
     - action: action_navigate
+
+- rule : filter action
+  steps:
+    - intent: filter
+    - action: action_filter
+
+- rule: search action
+  steps:
+    - intent: search
+    - action: action_search
+
+- rule: define action
+  steps:
+    - intent: define
+    - action: action_define
+- rule: sell action
+  steps:
+    - intent: sell_stock
+    - action: action_sell_stock
