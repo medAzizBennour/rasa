@@ -1,17 +1,19 @@
 version: "3.1"
 
-- rule: other action
+- rule: goodbye action
   steps:
     - intent: goodbye
     - action: action_other
+- rule: fallback action
+  steps:
+    - intent: nlu_fallback
+    - action: action_default_fallback
+
 - rule:  greet action
   steps:
     - intent: greet
-    - action: action_greet
-- rule:  goodbye action
-  steps:
-    - intent: goodbye
-    - action: other_action
+    - action: action_other
+
 
 - rule:  buy stock action
   steps:
@@ -33,10 +35,6 @@ version: "3.1"
     - intent: search
     - action: action_search
 
-- rule: define action
-  steps:
-    - intent: define
-    - action: action_define
 - rule: sell action
   steps:
     - intent: sell_stock

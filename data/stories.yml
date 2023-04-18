@@ -5,8 +5,12 @@ stories:
 - story: interactive greet
   steps: 
   - intent: greet
-  - action: action_greet
+  - action: action_other
 
+- story: interactive goodbye
+  steps: 
+  - intent: goodbye
+  - action: action_other
 
 - story: navigate_path
   steps:
@@ -92,16 +96,6 @@ stories:
   - action: action_search
   - slot_was_set:
     - query: null
-  - intent: search
-  - action: action_define
-  - intent: navigate
-    entities:
-    - page: portfolio
-  - slot_was_set:
-    - page: portfolio
-  - action: action_navigate
-  - slot_was_set:
-    - page: portfolio
   - intent: search
     entities:
     - query: current market trends
@@ -227,64 +221,8 @@ stories:
     entities:
     - query: portfolio management
 
-- story: interactive_story_1
-  steps:
-  - intent: define
-  - intent: define
-    entities:
-    - term: equity
-  - action: action_define
-  - slot_was_set:
-    - term: null
-  - intent: define
-    entities:
-    - term: broker
-  - slot_was_set:
-    - term: broker
-  - action: action_define
-  - slot_was_set:
-    - term: broker
-  - intent: define
-    entities:
-    - query: volatility
-  - intent: define
-    entities:
-    - term: volatility
-  - action: action_define
-  - slot_was_set:
-    - term: broker
-  - intent: define
-    entities:
-    - term: market
-  - slot_was_set:
-    - term: market
-  - intent: define
-    entities:
-    - term: bear market
-  - action: action_define
-  - slot_was_set:
-    - term: broker
 
 - story: interactive_story_1
   steps:
-  - intent: define
-    entities:
-    - term: equity
-  - slot_was_set:
-    - term: equity
-  - action: action_define
-  - slot_was_set:
-    - term: equity
-  - intent: define
-    entities:
-    - query: stock loss
-  - intent: define
-    entities:
-    - term: stock loss
-  - intent: define
-  - intent: define
-    entities:
-    - term: yield
-  - action: action_define
-  - slot_was_set:
-    - term: equity
+  - intent: nlu_fallback
+  - action: action_default_fallback

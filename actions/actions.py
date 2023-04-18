@@ -5,6 +5,7 @@ from rasa_sdk.events import SlotSet, EventType,AllSlotsReset,ActionExecuted
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk import FormValidationAction
 from rasa_sdk.types import DomainDict
+
 from .verif_params.CheckParamsAction import CheckFilteredObj,CheckCreterias,CheckPage,CheckSecurity
 import json
 import random
@@ -188,32 +189,6 @@ class SearchAction(Action):
         
 
 
-class DefineAction(Action):
-
-    def name(self) -> Text:
-        return "action_define"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        # Get latest user message
-        latest_message = tracker.latest_message
-        
-        # Get intent and extracted entities
-        intent = latest_message['intent']['name']
-        term =tracker.get_slot("term")
-        #if term exists
-        if term:
-            tracker.slots['term'] = term
-            response_message = f"searching for {term}"     
-        else:
-            response_message = f"please specify the term to define"
-        response_dict = {"intent": intent, "entities": {"term":term}, "response": response_message}
-        # Send response message using dispatcher
-        dispatcher.utter_message(json.dumps(response_dict))
-
-        return [AllSlotsReset()]
     
 
 class SellStockAction(Action):
@@ -273,27 +248,7 @@ class SellStockAction(Action):
 
         return [AllSlotsReset()]
 
-class GreetAction(Action):
 
-    def name(self) -> Text:
-        return "action_greet"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        # Get latest user message
-        latest_message = tracker.latest_message
-        
-        # Get intent and extracted entities
-        intent = latest_message['intent']['name']
-
-        response = random.choice(domain["responses"]["utter_greet"])
-        response_dict = {"intent": intent, "response":response["text"]}
-        # Send response message using dispatcher
-        dispatcher.utter_message(json.dumps(response_dict))
-
-        return []
 
 class OtherAction(Action):
 
@@ -317,6 +272,22 @@ class OtherAction(Action):
 
         response = random.choice(domain["responses"][template_key])
         response_dict = {"intent": intent, "response":response["text"]}
+        # Send response message using dispatcher
+        dispatcher.utter_message(json.dumps(response_dict))
+
+        return []
+    
+class FallbackAction(Action):
+
+    def name(self) -> Text:
+        return "action_default_fallback"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        default_message="default response"
+        response_dict = {"intent": "fallback", "response":default_message}
         # Send response message using dispatcher
         dispatcher.utter_message(json.dumps(response_dict))
 
