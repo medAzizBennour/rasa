@@ -16,12 +16,12 @@ intents:
 - sell_stock
 entities:
 - query
+- stock_number
 - filtered_obj
 - criteria
-- stock_list
-- stock_number
-- stock_company
 - page
+- stock_company
+- stock_list
 slots:
   stock_company:
     type: text
@@ -121,12 +121,12 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
-- action_search
-- action_filter
 - action_navigate
+- action_filter
+- action_other
+- action_search
 - action_sell_stock
 - action_buy_stock
 - action_check_parameter
 - action_greet
-- action_other
 - action_default_fallback

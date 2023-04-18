@@ -224,5 +224,72 @@ stories:
 
 - story: interactive_story_1
   steps:
+  - intent: greet
+  - action: action_other
+  - intent: navigate
+    entities:
+    - page: orders
+  - slot_was_set:
+    - page: orders
+  - action: action_navigate
+  - intent: navigate
+    entities:
+    - page: placements
+  - slot_was_set:
+    - page: placements
+  - action: action_navigate
+  - intent: filter
+    entities:
+    - criteria: working
+    - criteria: new
+    - criteria: closed
+    - filtered_obj: placements
+  - slot_was_set:
+    - filtered_obj: placements
+  - slot_was_set:
+    - criteria:
+      - working
+      - new
+      - closed
+  - action: action_filter
+  - intent: sell_stock
+  - action: action_sell_stock
+  - intent: sell_stock
+    entities:
+    - stock_number: '10'
+  - slot_was_set:
+    - stock_number: '10'
+  - action: action_sell_stock
+  - slot_was_set:
+    - stock_company: null
+  - slot_was_set:
+    - stock_number: '10'
+  - intent: sell_stock
+    entities:
+    - stock_company: nvidia
+  - slot_was_set:
+    - stock_company: nvidia
+  - action: action_sell_stock
+  - intent: search
+    entities:
+    - query: articles about trading
+  - slot_was_set:
+    - query: articles about trading
+  - intent: search
+    entities:
+    - query: videos about how to trade
+  - slot_was_set:
+    - query: videos about how to trade
+  - action: action_search
+  - slot_was_set:
+    - query: videos about how to trade
+  - intent: greet
   - intent: nlu_fallback
+  - action: action_default_fallback
+  - intent: sell_stock
+    entities:
+    - query: loss
+  - intent: nlu_fallback
+    entities:
+    - query: loss
   - action: action_default_fallback

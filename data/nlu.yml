@@ -61,149 +61,131 @@ nlu:
     - can i sell some stocks?
     - can you sell me some shares?
     - i'd like to sell stocks
-    - i want to sell tesla](stock_company) stocks
-    - sell me nvidia](stock_company) shares
-    - i want to sell some apple](stock_company) shares
-    - sell me 20](stock_number) shares
-    - i want to sell 100](stock_number) stocks
-    - sell me 5](stock_number) stocks
-    - sell me 50](stock_number) shares of nvidia](stock_company)
+    - i want to sell [tesla](stock_company) stocks
+    - sell me [nvidia](stock_company) shares
+    - i want to sell some [apple](stock_company) shares
+    - sell me [20](stock_number) shares
+    - i want to sell [100](stock_number) stocks
+    - sell me [5](stock_number) stocks
+    - sell me [50](stock_number) shares of [nvidia](stock_company)
     - sell a stock
     - sell me another stock
-    - sell 10](stock_number) shares of tesla](stock_company)
-    - i want to sell 100](stock_number) shares
-    - sell me 100](stock_number) shares of tesla](stock_company)
-    - sell 100](stock_number) shares of nvidia](stock_company)
-    - sell me 10](stock_number) shares of tesla](stock_company)
-    - i want to sell tesla](stock_company) stock
-    - nvidia](stock_company)
-    - google](stock_company) shares
-    - 100](stock_number) shares
-    - 20](stock_number)
-    - 10](stock_number) shares of tesla](stock_company)
-    - microsoft](stock_company) stocks
-    - 50](stock_number)
-    - 10](stock_number) stocks
-    - tesla](stock_company) stock
-    - tesla](stock_company)
-    - 10](stock_number)
-    - 10](stock_number) nvidia](stock_company) shares
+    - sell [10](stock_number) shares of [tesla](stock_company)
+    - i want to sell [100](stock_number) shares
+    - sell me [100](stock_number) shares of [tesla](stock_company)
+    - sell [100](stock_number) shares of [nvidia](stock_company)
+    - sell me [10](stock_number) shares of [tesla](stock_company)
+    - i want to sell [tesla](stock_company) stock
+    - [nvidia](stock_company)
+    - [google](stock_company) shares
+    - [100](stock_number) shares
+    - [20](stock_number)
+    - [10](stock_number) shares of [tesla](stock_company)
+    - [microsoft](stock_company) stocks
+    - [50](stock_number)
+    - [10](stock_number) stocks
+    - [tesla](stock_company) stock
+    - [tesla](stock_company)
+    - [10](stock_number)
+    - [10](stock_number) [nvidia](stock_company) shares
+    - sell me some stocks
+    - [10](stock_number) shares
+    - [nvidia](stock_company) shares
 - intent: navigate
   examples: |
-    - navigate to my potfolio](page)
-    - go to orders](page)
-    - can you navigate to placements](page)
-    - show me the list of placements](page)
-    - display all the orders](page)
-    - display my portfolio](page)
-    - display the dashboard](page) page
-    - navigate to the dashboard](page)
-    - go to my portfolio](page)
-    - show me the list of orders](page)
-    - navigate to placements](page)
-    - navigate to my portfolio](page)
+    - navigate to my [potfolio](page)
+    - go to [orders](page)
+    - can you navigate to [placements](page)
+    - show me the list of [placements](page)
+    - display all the [orders](page)
+    - display my [portfolio](page)
+    - display the [dashboard](page) page
+    - navigate to the [dashboard](page)
+    - go to my [portfolio](page)
+    - show me the list of [orders](page)
+    - navigate to [placements](page)
+    - navigate to my [portfolio](page)
+    - navigate to profile
+    - go to [placements](page)
+    - navigate to [dashboard](page)
+    - go to [orders](page)
+    - navigate to [placements](page)
 - intent: filter
   examples: |
-    - Display the list of closed](criteria) and working](criteria) orders](filtered_obj) for Facebook](stock_list) and Tesla](stock_list) stocks
-    - filter the list of working](criteria), paused](criteria) and closed](criteria) orders](filtered_obj) for apple](stock_list) and microsoft](stock_list) stocks
-    - show me the list of new](criteria), paused](criteria) and working](criteria) orders](filtered_obj) for apple](stock_list) stocks
-    - filter the list of filled](criteria) and paused](criteria) orders](filtered_obj) for microsoft](stock_list) and tesla](stock_list) stocks
-    - show me the list of new](criteria) and closed](criteria) orders](filtered_obj) for microsoft](stock_list) and ibm](stock_list) stocks
-    - Display the list of filled](criteria) and paused](criteria) orders](filtered_obj) for google](stock_list) and facebook](stock_list) stocks
-    - filter the list of working](criteria) and paused](criteria) orders](filtered_obj) for apple](stock_list) and microsoft](stock_list) stocks
-    - Show me the list of new](criteria) and filled](criteria) orders](filtered_obj) for tesla](stock_list) and amazon](stock_list) stocks
-    - Dispaly the list of closed](criteria) and paused](criteria) orders](filtered_obj) for ibm](stock_list) and meta](stock_list) stocks
-    - Show me the list of new](criteria) and paused](criteria) orders](filtered_obj) for apple](stock_list) and amazon](stock_list) stocks
-    - Show me the list of working](criteria) and filled](criteria) orders](filtered_obj) for google](stock_list) and microsoft](stock_list) stocks
-    - Show me the list of closed](criteria) and working](criteria) placements](filtered_obj) for facebook](stock_list) and tesla](stock_list) stocks
-    - Show me the list of paused](criteria) and filled](criteria) orders](filtered_obj) for ibm](stock_list) and google](stock_list) stocks
-    - Show me the list of new](criteria) and closed](criteria) placements](filtered_obj) for microsoft](stock_list) and ibm](stock_list) stocks
-    - Show me the list of filled](criteria) and paused](criteria) placements](filtered_obj) for microsoft](stock_list) and Tesla](stock_list) stocks
-    - Show me the list of working](criteria) and paused](criteria) placements](filtered_obj) for Apple](stock_list) and microsoft](stock_list) stocks
-    - Show me the list of filled](criteria) and paused](criteria) placements](filtered_obj) for google](stock_list) and meta](stock_list) stocks
-    - Show me the list of new](criteria) and filled](criteria) placements](filtered_obj) for tesla](stock_list) and amazon](stock_list) stocks
-    - Show me the list of closed](criteria) and paused](criteria) placements](filtered_obj) for ibm](stock_list) and meta](stock_list) stocks
-    - Show me the list of working](criteria) and filled](criteria) placements](filtered_obj) for google](stock_list) and microsoft](stock_list) stocks
-    - Show me the list of new](criteria) and pauses](criteria) placements](filtered_obj) for Apple](stock_list) and Amazon](stock_list) stocks
-    - Show me the list of paused](criteria) and closed](criteria) placements](filtered_obj) for Apple](stock_list) and Tesla](stock_list) stocks
-    - Display the list of filled](criteria) and working](criteria) placements](filtered_obj) for Amazon](stock_list) and Google](stock_list) stocks
-    - Filter the list of new](criteria) and paused](criteria) placements](filtered_obj) for Microsoft](stock_list) and meta](stock_list) stocks
-    - Display the list of filled](criteria) and paused](criteria) placements](filtered_obj) for Apple](stock_list) and meta](stock_list) stocks
-    - Show me the list of open](criteria) and filled](criteria) placements](filtered_obj) for Amazon](stock_list) and Tesla](stock_list) stocks
-    - Display the list of filled](criteria) and working](criteria) placements](filtered_obj) for Facebook](stock_list) and Google](stock_list) stocks
-    - Filter the list of new and paused placements](filtered_obj) for and Apple](criteria) stocks](criteria)
-    - filter the list of orders](filtered_obj) by new](criteria) and closed](criteria)
-    - filter new](criteria) and closed](criteria) placements](filtered_obj)
-    - filter closed](criteria), filled](criteria) and working](criteria) google](stock_list) and apple](stock_list) orders](filtered_obj)
-    - filter orders](filtered_obj) by filled](criteria) and closed](criteria)
-    - filter the list of working](criteria), paused](criteria) and closed](criteria) orders](filtered_obj)
+    - Display the list of [closed](criteria) and [working](criteria) [orders](filtered_obj) for [Facebook](stock_list) and [Tesla](stock_list) stocks
+    - filter the list of [working](criteria), [paused](criteria) and [closed](criteria) [orders](filtered_obj) for [apple](stock_list) and [microsoft](stock_list) stocks
+    - show me the list of [new](criteria), [paused](criteria) and [working](criteria) [orders](filtered_obj) for [apple](stock_list) stocks
+    - filter the list of [filled](criteria) and [paused](criteria) [orders](filtered_obj) for [microsoft](stock_list) and [tesla](stock_list) stocks
+    - show me the list of [new](criteria) and [closed](criteria) [orders](filtered_obj) for [microsoft](stock_list) and [ibm](stock_list) stocks
+    - Display the list of [filled](criteria) and [paused](criteria) [orders](filtered_obj) for [google](stock_list) and [facebook](stock_list) stocks
+    - filter the list of [working](criteria) and [paused](criteria) [orders](filtered_obj) for [apple](stock_list) and [microsoft](stock_list) stocks
+    - Show me the list of [new](criteria) and [filled](criteria) [orders](filtered_obj) for [tesla](stock_list) and [amazon](stock_list) stocks
+    - Dispaly the list of [closed](criteria) and [paused](criteria) [orders](filtered_obj) for [ibm](stock_list) and [meta](stock_list) stocks
+    - Show me the list of [new](criteria) and [paused](criteria) [orders](filtered_obj) for [apple](stock_list) and [amazon](stock_list) stocks
+    - Show me the list of [working](criteria) and [filled](criteria) [orders](filtered_obj) for [google](stock_list) and [microsoft](stock_list) stocks
+    - Show me the list of [closed](criteria) and [working](criteria) [placements](filtered_obj) for [facebook](stock_list) and [tesla](stock_list) stocks
+    - Show me the list of [paused](criteria) and [filled](criteria) [orders](filtered_obj) for [ibm](stock_list) and [google](stock_list) stocks
+    - Show me the list of [new](criteria) and [closed](criteria) [placements](filtered_obj) for [microsoft](stock_list) and [ibm](stock_list) stocks
+    - Show me the list of [filled](criteria) and [paused](criteria) [placements](filtered_obj) for [microsoft](stock_list) and [Tesla](stock_list) stocks
+    - Show me the list of [working](criteria) and [paused](criteria) [placements](filtered_obj) for [Apple](stock_list) and [microsoft](stock_list) stocks
+    - Show me the list of [filled](criteria) and [paused](criteria) [placements](filtered_obj) for [google](stock_list) and [meta](stock_list) stocks
+    - Show me the list of [new](criteria) and [filled](criteria) [placements](filtered_obj) for [tesla](stock_list) and [amazon](stock_list) stocks
+    - Show me the list of [closed](criteria) and [paused](criteria) [placements](filtered_obj) for [ibm](stock_list) and [meta](stock_list) stocks
+    - Show me the list of [working](criteria) and [filled](criteria) [placements](filtered_obj) for [google](stock_list) and [microsoft](stock_list) stocks
+    - Show me the list of [new](criteria) and [pauses](criteria) [placements](filtered_obj) for [Apple](stock_list) and [Amazon](stock_list) stocks
+    - Show me the list of [paused](criteria) and [closed](criteria) [placements](filtered_obj) for [Apple](stock_list) and [Tesla](stock_list) stocks
+    - Display the list of [filled](criteria) and [working](criteria) [placements](filtered_obj) for [Amazon](stock_list) and [Google](stock_list) stocks
+    - Filter the list of [new](criteria) and [paused](criteria) [placements](filtered_obj) for [Microsoft](stock_list) and [meta](stock_list) stocks
+    - Display the list of [filled](criteria) and [paused](criteria) [placements](filtered_obj) for [Apple](stock_list) and [meta](stock_list) stocks
+    - Show me the list of [open](criteria) and [filled](criteria) [placements](filtered_obj) for [Amazon](stock_list) and [Tesla](stock_list) stocks
+    - Display the list of [filled](criteria) and [working](criteria) [placements](filtered_obj) for [Facebook](stock_list) and [Google](stock_list) stocks
+    - Filter the list of new and paused [placements](filtered_obj) for and [Apple](criteria) [stocks](criteria)
+    - filter the list of [orders](filtered_obj) by [new](criteria) and [closed](criteria)
+    - filter [new](criteria) and [closed](criteria) [placements](filtered_obj)
+    - filter [closed](criteria), [filled](criteria) and [working](criteria) [google](stock_list) and [apple](stock_list) [orders](filtered_obj)
+    - filter [orders](filtered_obj) by [filled](criteria) and [closed](criteria)
+    - filter the list of [working](criteria), [paused](criteria) and [closed](criteria) [orders](filtered_obj)
+    - display the list of [working](criteria) [new](criteria) and [closed](criteria) [placements](filtered_obj)
 - intent: search
   examples: |
-    - search for articles about trading](query)
-    - Please search for information about stop loss orders](query)
-    - Search for news about the stock market today](query)
-    - Please search for videos about day trading strategies](query) on YouTube
-    - Find me books on Amazon about options trading](query)
-    - Find me articles on Google about value investing](query)
-    - Please search for videos about swing trading](query) on YouTube
-    - Search for news about the cryptocurrency market](query)
-    - Please look up news articles about the stock market today](query)
-    - Find me some information about day trading strategies](query)
-    - Can you search for books on technical analysis](query) for me?
-    - Please find me some videos about futures trading](query)
-    - Can you find some resources about swing trading](query)?
-    - Please look up articles about the importance of diversification in investing](query)
-    - Can you find me some resources about algorithmic trading](query)?
-    - Can you find me some resources about candlestick chart patterns](query)?
-    - Please search for articles about the best stocks to invest in for longrowth ](query)
-    - Can you find me some information about commodities trading](query)?
-    - Can you find me some resources about technical indicators](query)?
-    - Find me the stock symbol for Microsoft](query)
-    - Find me the closing price of Amazon's stock on Friday](query)
-    - Find me the historical stock prices for Coca-Cola](query)
-    - Find me the current stock price for Tesla and Facebook](query)
-    - Find me the stock symbol for Alphabet Inc](query).
-    - search for the importance of trading](query)
-    - search for information about stop loss orders](query)
-    - Search for news about the stock market today news today](query)
-    - Search for news about the cryptocurrency marketrency](query)
-    - Can you find information about swing trading](query)?'
-    - Please search for articles about the best stocks to invest in for longrowth](query)
-    - search for the meaning of trading](query)
-    - search for new articles about the importance of diversification in investing](query)
-    - find me some articles about the methods of trading](query)
-    - search for videos about diversification in investing](query)
-    - find me some ressources about portfolio management](query)
+    - search for [articles about trading](query)
+    - Please search for [information about stop loss orders](query)
+    - Search for [news about the stock market today](query)
+    - Please search for [videos about day trading strategies](query) on YouTube
+    - Find me [books on Amazon about options trading](query)
+    - Find me [articles on Google about value investing](query)
+    - Please search for [videos about swing trading](query) on YouTube
+    - Search for [news about the cryptocurrency market](query)
+    - Please look up [news articles about the stock market today](query)
+    - Find me some information about [day trading strategies](query)
+    - Can you search for [books on technical analysis](query) for me?
+    - Please find me some [videos about futures trading](query)
+    - Can you find some resources about [swing trading](query)?
+    - Please look up [articles about the importance of diversification in investing](query)
+    - Can you find me some resources about [algorithmic trading](query)?
+    - Can you find me some resources about [candlestick chart patterns](query)?
+    - Please search for articles about [the best stocks to invest in for long-term growth ](query)
+    - Can you find me some information about [commodities trading](query)?
+    - Can you find me some resources about [technical indicators](query)?
+    - Find me [the stock symbol for Microsoft](query)
+    - Find me [the closing price of Amazon's stock on Friday](query)
+    - Find me [the historical stock prices for Coca-Cola](query)
+    - Find me [the current stock price for Tesla and Facebook](query)
+    - Find me [the stock symbol for Alphabet Inc](query).
+    - search for [the importance of trading](query)
+    - search for [information about stop loss orders](query)
+    - Search for [news about the stock market today news today](query)
+    - Search for [news about the cryptocurrency marketrency](query)
+    - Can you find information about [swing trading](query)?'
+    - Please search for [articles about the best stocks to invest in for long-term growth](query)
+    - search for [the meaning of trading](query)
+    - search for [new articles about the importance of diversification in investing](query)
+    - find me some [articles about the methods of trading](query)
+    - search for [videos about diversification in investing](query)
+    - find me some ressources about [portfolio management](query)
+    - search for [articles about trading](query)
+    - search for [videos about how to trade](query)
 - intent: nlu_fallback
   examples: |
-    - What is diversification?
-    - What is asset allocation?
-    - What is a mutual fund?
-    - What is an index fund?
-    - What is an ETF?
-    - What is dollar-cost averaging?
-    - What is a 401(k)?
-    - What is a Roth IRA?
-    - What is compound interest?
-    - Can you explain what a stop-loss order is?
-    - What is a trailing stop order?
-    - What is a market order?
-    - What is a stock?
-    - Define market order.
-    - Define limit order.
-    - Define a stock.
-    - Define bond.
-    - Define mutual fund.
-    - Define ETF.
-    - Define diversification.
-    - Define return on investment.
-    - define broker
-    - what is volatility
-    - define for me a bear market
     - define equity
-    - what is stock loss
-    - define yield
-    - define bid
-    - what is the meaning of exchange?
-    - define spread
-    - what's stock loss
+    - what is stock [loss](query)?

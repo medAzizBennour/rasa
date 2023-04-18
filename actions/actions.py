@@ -101,7 +101,7 @@ class NavigateAction(Action):
         # Send response message using dispatcher
         dispatcher.utter_message(json.dumps(response_dict))
 
-        return [SlotSet("page", page)]
+        return []
         
 
 class FilterAction(Action):
@@ -209,7 +209,6 @@ class SellStockAction(Action):
         
         # Get latest user message
         latest_message = tracker.latest_message
-        
         # Get intent and extracted entities
         intent = latest_message['intent']['name']
         stock_number = tracker.get_slot("stock_number")
